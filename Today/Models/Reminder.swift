@@ -36,6 +36,14 @@ struct Reminder: Identifiable {
  release. You can use this flag for testing code in debug builds—or
  for providing sample test data, like you’ll do in the next step.
  */
+extension [Reminder] {
+    func indexOfReminder(withId id: Reminder.ID) -> Self.Index  {
+        guard let index = firstIndex(where: { $0.id == id }) else {
+            fatalError()
+        }
+        return index
+    }
+}
 
 #if DEBUG
 extension Reminder {
