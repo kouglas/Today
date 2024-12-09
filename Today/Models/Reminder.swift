@@ -30,12 +30,7 @@ struct Reminder: Identifiable {
 }
 
 
-/*
- The #if DEBUG flag is a compilation directive that prevents
- the enclosed code from compiling when you build the app for
- release. You can use this flag for testing code in debug builds—or
- for providing sample test data, like you’ll do in the next step.
- */
+
 extension [Reminder] {
     func indexOfReminder(withId id: Reminder.ID) -> Self.Index  {
         guard let index = firstIndex(where: { $0.id == id }) else {
@@ -44,6 +39,13 @@ extension [Reminder] {
         return index
     }
 }
+
+/*
+ The #if DEBUG flag is a compilation directive that prevents
+ the enclosed code from compiling when you build the app for
+ release. You can use this flag for testing code in debug builds—or
+ for providing sample test data, like you’ll do in the next step.
+ */
 
 #if DEBUG
 extension Reminder {
